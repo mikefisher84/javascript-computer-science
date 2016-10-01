@@ -60,37 +60,30 @@ SinglyList.prototype.insert = function (position, element) {
  */
 SinglyList.prototype.removeAt = function(position) {
 
-  var currentNode = this.head;
-  var lenght = this.length;
-  var count = 0;
-  var beforeNodeToDelete = null;
-  var nodeToDelete = null;
-  var deletedNode = null;
+	if(position > -1 && position < length) {
+		var current = this.head;
+		var previous;
+		var index = 0;
 
+		// remove first item
+		if (position === 0) {
+			this.head = current.next;
+		} else {
 
+			while (index < position) {
+				previous = current;
+				current = curent.next;
+				index++;
+			}
 
-  //1st case node is invalid
-  if(position < 1 || position > length) {
-    return 'not found';
-  }
+			previous.next = current.next;
+			this.length--;
 
-  // 2nd case node is first
-  if (position === 1) {
-    this.head = currentNode.next;
-    deletedNode = currentNode;
-    currentNode = null;
-    this.length--;
-
-    return deletedNode;
-  }
-
-  // 3rd case search for node
-  while (count < position) {
-    beforeNodeToDelete = currentNode;
-    nodeToDelete = currentNode.next;
-    count++;
-  }
-
+			return current.element;
+		}
+	} else {
+		return null;
+	}
 }
 
 
