@@ -116,7 +116,14 @@ SinglyList.prototype.size = function size() {
 };
 
 SinglyList.prototype.toString = function toString() {
+  let current = this.head;
+  let string = '';
 
+  while (current) {
+    string += current.data + (current.next ? 'n' : '');
+    current = current.next;
+  }
+  return string;
 };
 
 SinglyList.prototype.print = function isEmpty() {
