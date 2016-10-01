@@ -8,7 +8,6 @@ function Node(data) {
   this.next = null;
 }
 
-
 /**
  * SinglyList - Single LinkedList constructor function
  */
@@ -21,36 +20,53 @@ function SinglyList() {
  * SinglyList.prototype.append - adds new item to end of the list
  * @param  {Node} element the element to be added
  */
-SinglyList.prototype.append = function(element) {
-  var node = new Node(element);
-  var currentNode = this.head;
+SinglyList.prototype.append = function append(element) {
+  const node = new Node(element);
+  let currentNode = this.head;
 
-	if(!this.head) {
+  if (!this.head) {
     this.head = node;
     this.length++;
-
   } else {
-	  while(currentNode.next) {
-	    currentNode = currentNode.next;
-	  }
-	  currentNode.next = node;
-	  this.length++;
-
-	}
-}
-
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    this.length++;
+  }
+};
 
 /**
  * SinglyList.prototype.insert - inserts new node at specificied position in list
  *
  * @param  {Node} position position to be inserted at
  * @param  {Node} element  Node to be inserted
- * @return {Node}          returns the inserted node
  */
-SinglyList.prototype.insert = function (position, element) {
+SinglyList.prototype.insert = function insert(position, element) {
+  if (position >= 0 && position <= this.length) {
+    const node = new Node(element);
+    let current = this.head;
+    let previous;
+    let index = 0;
 
-}
+    if (position === 0) {
+      node.next = current;
+      this.head = node;
+    } else {
+      while (index < position) {
+        previous = current;
+        current = current.next;
+        index++;
+      }
+      node.next = current;
+      previous.next = node;
+    }
+    this.length++;
 
+    return true;
+  }
+  return false;
+};
 
 /**
  * SinglyList.prototype.removeAt - description
@@ -58,57 +74,51 @@ SinglyList.prototype.insert = function (position, element) {
  * @param  {type} position description
  * @return {type}          description
  */
-SinglyList.prototype.removeAt = function(position) {
+SinglyList.prototype.removeAt = function removeAt(position) {
+  if (position > -1 && position < this.length) {
+    let current = this.head;
+    let previous;
+    let index = 0;
 
-	if(position > -1 && position < length) {
-		var current = this.head;
-		var previous;
-		var index = 0;
+    // remove first item
+    if (position === 0) {
+      this.head = current.next;
+    } else {
+      while (index < position) {
+        previous = current;
+        current = current.next;
+        index++;
+      }
 
-		// remove first item
-		if (position === 0) {
-			this.head = current.next;
-		} else {
+      previous.next = current.next;
+      this.length--;
 
-			while (index < position) {
-				previous = current;
-				current = curent.next;
-				index++;
-			}
+      return current.element;
+    }
+  }
+  return null;
+};
 
-			previous.next = current.next;
-			this.length--;
-
-			return current.element;
-		}
-	} else {
-		return null;
-	}
-}
-
-
-
-
-SinglyList.prototype.remove = function () {
+SinglyList.prototype.remove = function remove() {
 
 };
 
-SinglyList.prototype.indexOf = function (element) {
+SinglyList.prototype.indexOf = function indexOf(element) {
 
 };
 
-SinglyList.prototype.isEmpty = function () {
+SinglyList.prototype.isEmpty = function isEmpty() {
 
 };
 
-SinglyList.prototype.size = function () {
+SinglyList.prototype.size = function size() {
 
 };
 
-SinglyList.prototype.toString = function () {
+SinglyList.prototype.toString = function toString() {
 
 };
 
-SinglyList.prototype.print = function () {
+SinglyList.prototype.print = function isEmpty() {
 
 };
