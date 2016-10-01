@@ -4,6 +4,7 @@ module.exports = {
         "import"
     ],
     "rules": {
-      "no-plusplus": "off"
+      "no-plusplus": "off",
+      "func names": "off"
     }
 };

@@ -1,23 +1,25 @@
 function Stack() {
-	this._size = 0;
-	this._storage = 0;
+  this.size = 0;
+  this.storage = 0;
 }
 
-Stack.prototype.push = function(data) {
-	var size = this._size++;
+Stack.prototype.push = function (data) {
+  const size = this.size++;
 
-	this._storage[size] = data;
-}
+  this.storage[size] = data;
+};
 
-Stack.prototype.pop = function() {
-	var size = this._size,
-			deletedData;
-	if (size) {
-		deletedData = this._storage[size];
+Stack.prototype.pop = function () {
+  const size = this.size;
+  let deletedData;
 
-		delete this._storage[size];
-		this.size--;
+  if (size) {
+    deletedData = this.storage[size];
 
-		return deletedData
-	}
-}
+    delete this.storage[size];
+    this.size--;
+
+    return deletedData;
+  }
+  return 'empty stack';
+};
