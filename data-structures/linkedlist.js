@@ -20,32 +20,44 @@ function SinglyList() {
 /**
  * SinglyList.prototype.append - adds new item to end of the list
  * @param  {Node} element the element to be added
- * @return {Node}       the element that was added
  */
 SinglyList.prototype.append = function(element) {
-  var node = new Node(value);
+  var node = new Node(element);
   var currentNode = this.head;
 
-  if(!currentNode) {
+	if(!this.head) {
     this.head = node;
     this.length++;
 
-    return node;
-  }
+  } else {
+	  while(currentNode.next) {
+	    currentNode = currentNode.next;
+	  }
+	  currentNode.next = node;
+	  this.length++;
 
-  while(currentNode.next) {
-    currentNode = currentNode.next;
-  }
-  currentNode.next = node;
-  this.length++;
-  return node
+	}
+}
+
+
+/**
+ * SinglyList.prototype.insert - inserts new node at specificied position in list
+ *
+ * @param  {Node} position position to be inserted at
+ * @param  {Node} element  Node to be inserted
+ * @return {Node}          returns the inserted node
+ */
+SinglyList.prototype.insert = function (position, element) {
 
 }
 
-SinglyList.prototype.insert = function (position, element) {
 
-};
-
+/**
+ * SinglyList.prototype.removeAt - description
+ *
+ * @param  {type} position description
+ * @return {type}          description
+ */
 SinglyList.prototype.removeAt = function(position) {
 
   var currentNode = this.head;
@@ -80,6 +92,9 @@ SinglyList.prototype.removeAt = function(position) {
   }
 
 }
+
+
+
 
 SinglyList.prototype.remove = function () {
 
