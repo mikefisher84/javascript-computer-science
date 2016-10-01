@@ -103,8 +103,24 @@ SinglyList.prototype.remove = function remove() {
 
 };
 
+/**
+ * SinglyList.prototype.indexOf - Searches LinkedList for element and returns the index of it
+ *
+ * @param  {String} element the element to return for
+ * @return {Number}         returns the index of the element or -1 if not found
+ */
 SinglyList.prototype.indexOf = function indexOf(element) {
+  let current = this.head;
+  let index = -1;
 
+  while (current) {
+    if (element === current.data) {
+      return index;
+    }
+    index++;
+    current = current.next;
+  }
+  return -1;
 };
 
 SinglyList.prototype.isEmpty = function isEmpty() {
@@ -115,6 +131,11 @@ SinglyList.prototype.size = function size() {
 
 };
 
+/**
+ * SinglyList.prototype.oString - stringifies the LinkedList object
+ *
+ * @return {String}  string of LinkedList object
+ */
 SinglyList.prototype.toString = function toString() {
   let current = this.head;
   let string = '';
