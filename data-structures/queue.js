@@ -1,27 +1,27 @@
 function Queue() {
-	this._oldestIndex = 1;
-	this._newestIndex = 1;
-	this._storage = {};
+  this.oldestIndex = 1;
+  this.newestIndex = 1;
+  this.storage = {};
 }
 
 Queue.prototype.size = function () {
-	return this._newestIndex - this.oldestIndex;
+  return this.newestIndex - this.oldestIndex;
 };
 
-Queue.prototype.enqueue = function(data) {
-	this._storage[this._newestIndex] = data;
-	this._newestIndex++;
+Queue.prototype.enqueue = function (data) {
+  this.storage[this.newestIndex] = data;
+  this.newestIndex++;
 };
 
-Queue.prototype.dequeue = function() {
-	var oldestIndex = this._oldestIndex,
-			deletedData = this._storage[oldestIndex];
+Queue.prototype.dequeue = function () {
+  const oldestIndex = this.oldestIndex;
+  const deletedData = this.storage[oldestIndex];
 
-	if(oldestIndex !== newestIndex) {
-		delete this._storage[oldestIndex];
-		this._oldestIndex++
+  if (oldestIndex !== this.newestIndex) {
+    delete this.storage[oldestIndex];
+    this.oldestIndex++;
 
-		return deletedData;
-	}
-
-}
+    return deletedData;
+  }
+  return 'empty queue';
+};
