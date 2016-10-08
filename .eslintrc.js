@@ -5,6 +5,8 @@ module.exports = {
     ],
     "rules": {
       "no-plusplus": "off",
-      "func-names": "off"
+      "func-names": "off",
+      "no-restricted-syntax": ["off"],
+      "no-prototype-builtins": "off"
     }
 };
