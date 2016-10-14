@@ -13,7 +13,6 @@ function Set2() {
   this.items = {};
 }
 
-
 /**
  * add - adds a new value to a set
  *
